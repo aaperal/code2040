@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<link href="../boot/css/bootstrap.min.css" rel="stylesheet">
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+</div>
+    <script>
+    var info = {
+         "email" : "aap02014@mymail.pomona.edu",
+         "git" : "https://github.com/aaperal"
+    }
+    $(document).ready(function(){
+			$(".container").text("ready!");
+			$(".container").text(info);
+
+			$.ajax({
+                url: "http://challenge.code2040.org/api/register",
+                type: 'POST',
+                crossDomain: true,
+                dataType: 'text',
+                data: JSON.stringify(info)
+            }).done(function (data) {
+                $(".container").text(data);
+            }); 
+		});
+    </script>
+</body>
+</html>
